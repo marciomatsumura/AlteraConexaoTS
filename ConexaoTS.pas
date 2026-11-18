@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, System.IOUtils;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, System.IOUtils, Winapi.ShellAPI;
 
 type
   TFormConexaoTS = class(TForm)
@@ -18,13 +18,14 @@ type
     Button3: TButton;
     Button4: TButton;
     Label3: TLabel;
+    Button5: TButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure Memo1Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
   private
-    procedure AlterarValorRPD;
     procedure AlterarClienteTodosRPD(const APasta: String; Aposicao: integer; Avalor: String);
     { Private declarations }
   public
@@ -38,26 +39,6 @@ implementation
 
 {$R *.dfm}
 
-procedure TFormConexaoTS.AlterarValorRPD;
-var
-  SL: TStringList;
-begin
-  SL := TStringList.Create;
-  try
-    SL.LoadFromFile('EditConexaoTS');
-
-    SL.Text := StringReplace(
-      SL.Text,
-      'VALOR_ANTIGO',
-      'VALOR_NOVO',
-      [rfReplaceAll]
-    );
-
-    SL.SaveToFile('C:\Arquivos\relatorio.rdp');
-  finally
-    SL.Free;
-  end;
-end;
 
 procedure TFormConexaoTS.Button1Click(Sender: TObject);
 begin
@@ -87,6 +68,23 @@ begin
   AlterarClienteTodosRPD(EditConexaoTs.Text, 3, 'desktopheight:i:'+LAltura);
 end;
 
+
+procedure TFormConexaoTS.Button5Click(Sender: TObject);
+begin
+
+  var arquivo := EditConexaoTs.Text + Memo1.Lines[Memo1.Perform(EM_LINEFROMCHAR, Memo1.SelStart, 0)];
+  if FileExists(Arquivo) then
+    ShellExecute(
+      Handle,
+      'open',
+      PChar(Arquivo),
+      nil,
+      nil,
+      SW_SHOWNORMAL
+    )
+  else
+    ShowMessage('Arquivo não encontrado: ' + Arquivo);
+end;
 
 procedure TFormConexaoTS.Memo1Click(Sender: TObject);
 begin

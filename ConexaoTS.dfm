@@ -92,4 +92,13 @@ object FormConexaoTS: TFormConexaoTS
     TabOrder = 6
     OnClick = Button4Click
   end
+  object Button5: TButton
+    Left = 19
+    Top = 620
+    Width = 444
+    Height = 25
+    Caption = 'Abrir TS posicionado'
+    TabOrder = 7
+    OnClick = Button5Click
+  end
 end
