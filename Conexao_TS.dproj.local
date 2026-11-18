@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2026/11/18 12:32:26.000.291,=C:\Users\marcio\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2026/11/18 12:38:51.000.813,C:\Users\marcio\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\marcio\Documents\GitHub\Marcio\conexaoTS\ConexaoTS.pas</Transaction>
+    <Transaction>2026/11/18 12:38:51.000.813,C:\Users\marcio\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\marcio\Documents\GitHub\Marcio\conexaoTS\ConexaoTS.dfm</Transaction>
+    <Transaction>2026/11/18 12:39:05.000.234,C:\Users\marcio\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\marcio\Documents\GitHub\Marcio\conexaoTS\Conexao_TS.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
